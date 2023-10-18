@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 600,
     "height": 400,
-    "title": "Analyzing Cyberbullying Percentages Across DHS Areas Over Time",
+    "title": "Analysing Cyberbullying Percentages Across DHS Areas Over Time",
     "data": {
       "url": "https://raw.githubusercontent.com/elim0055/3179/main/Data/Cyberbullying.csv"
     },
