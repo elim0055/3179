@@ -33,7 +33,7 @@
   "encoding": {
     "tooltip": [
       {"field": "properties.LGA_NAME", "type": "nominal", "title": "Local Government Area"},
-      {"field": "Portion Bullied", "type": "quantitative", "title": "Percent Bullied"},
+      {"field": "Portion Bullied", "type": "quantitative", "title": "Percentage Bullied"},
       {"field": "Total Students", "type": "quantitative", "title": "Total Students"}
     ],
     "color": {
