@@ -1,0 +1,51 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 400,
+    "title": {
+      "text": "Percentage of Students Bullied by Gender and Year",
+      "fontSize": 16,
+      "fontWeight": "bold"
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/elim0055/3179/main/Data/Filtered_Gender_Bully.csv",
+      "format": {"type": "csv"}
+    },
+    "mark": {
+      "type": "bar",
+      "cornerRadius": 3
+    },
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "axis": {"title": "Year", "labelAngle": 0, "labelFontSize": 12, "titleFontSize": 14}
+      },
+      "y": {
+        "field": "Percentage",
+        "type": "quantitative",
+        "axis": {"title": "Percentage of Students Bullied", "labelFontSize": 12, "titleFontSize": 14}
+      },
+      "color": {
+        "field": "Gender",
+        "type": "nominal",
+        "scale": {"scheme": "tableau10"},
+        "legend": {"title": "Gender", "labelFontSize": 12, "titleFontSize": 14}
+      },
+      "xOffset": {"field": "Gender", "type": "ordinal", "scale": {"range": [0, 35]}},
+      "tooltip": [
+        {"field": "Year", "type": "ordinal", "title": "Year"},
+        {"field": "Gender", "type": "nominal", "title": "Gender"},
+        {"field": "Percentage", "type": "quantitative", "title": "Percentage Bullied"}
+      ]
+    },
+    "config": {
+      "view": {"stroke": null},
+      "axis": {"labelFont": "Arial", "titleFont": "Arial"},
+      "legend": {"labelFont": "Arial", "titleFont": "Arial"},
+      "header": {"labelFont": "Arial", "titleFont": "Arial"},
+      "title": {"fontSize": 18, "fontWeight": "bold", "font": "Arial"},
+      "background": "#eeeee4"
+    }
+  }
+  

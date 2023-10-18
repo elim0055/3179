@@ -1,0 +1,137 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 800,
+    "title": "Bullying vs Feeling Connected At School",
+    "data": {
+      "url": "https://raw.githubusercontent.com/elim0055/3179/main/Data/Connected_Bullied_Data.csv"
+    },
+    "params": [
+      {
+        "name": "Year",
+        "value": 2008,
+        "bind": {
+          "input": "range",
+          "min": 2008,
+          "max": 2015,
+          "step": 1,
+          "name": "Select year: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "datum.Year==Year"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "Portion Connected",
+        "type": "quantitative",
+        "title": "Percent of students feeling connected",
+        "scale": {
+          "domain": [20, 95]
+        }
+      },
+      "y": {
+        "field": "Portion Bullied",
+        "title": "Percent of students bullied",
+        "type": "quantitative",
+        "scale": {
+          "domain": [2, 40]
+        }
+      },
+      "color": {
+        "field": "Area Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Regional", "Metropolitan"],
+          "range": ["#4e79a7", "#f28e2b"]
+        },
+        "legend": {
+          "title": "Area Type",
+          "orient": "right"
+        }
+      }
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "circle",
+          "filled": true,
+          "opacity": 0.7
+        },
+        "encoding": {
+          "size": {
+            "field": "Total Students",
+            "type": "quantitative",
+            "scale": {
+              "type": "threshold",
+              "domain": [1000, 2000, 3000, 4000],
+              "range": [50, 100, 150, 200, 250]
+            }
+          },
+          "tooltip": [
+            {
+              "field": "LGA",
+              "type": "nominal",
+              "title": "Local Government Area"
+            },
+            {
+              "field": "Area Type",
+              "type": "nominal"
+            },
+            {
+              "field": "Total Students",
+              "type": "quantitative"
+            },
+            {
+              "field": "Portion Bullied",
+              "type": "quantitative",
+              "title": "Percent Bullied"
+            },
+            {
+              "field": "Year",
+              "type": "quantitative"
+            }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": 10,
+          "dy": -10,
+          "fontSize": 11,
+          "fontWeight": "bold"
+        },
+        "encoding": {
+          "text": {
+            "field": "LGA",
+            "type": "nominal"
+          },
+          "color": {
+            "value": "black"
+          },
+          "opacity": {
+            "condition": {
+              "test": "(datum['LGA'] === 'Casey' || datum['LGA'] === 'Wyndham' || datum['LGA'] === 'Brimbank' || datum['LGA'] === 'Greater Dandenong' || datum['LGA'] === 'Melton' || datum['LGA'] === 'Monash' || datum['LGA'] === 'Greater Geelong' || datum['LGA'] === 'Banyule' || datum['LGA'] === 'Hume' || datum['LGA'] === 'Whitehorse')",
+              "value": 1
+            },
+            "value": 0
+          }
+        }
+      }
+    ],
+    "config": {
+      "view": {"stroke": null},
+      "axis": {"labelFont": "Arial", "titleFont": "Arial"},
+      "legend": {"labelFont": "Arial", "titleFont": "Arial"},
+      "header": {"labelFont": "Arial", "titleFont": "Arial"},
+      "title": {"fontSize": 18, "fontWeight": "bold", "font": "Arial"},
+      "background": "#eeeee4"
+    }
+  }
+  

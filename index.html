@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            background-color: white;
+        }
+
+        .page {
+            background-color: #eeeee4;
+            padding: 20px;
+            width: 1000px;
+            border-radius: 10px;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        .visualization-big-container {
+            width: 810px;
+            height: 725px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        .visualization-mid-container {
+            width: 730px;
+            height: 480px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        .visualization-small-container {
+            width: 75px;
+            height: 520px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        .visualization-taller-container {
+            width: 725px;
+            height: 560px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        .side-by-side {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .side-by-side .visualization-taller-container {
+            width: 70%;
+            box-sizing: border-box;
+        }
+
+        .side-by-side .visualization-small-container {
+            width: 47%;
+            box-sizing: border-box;
+        }
+
+        .side-by-side .analysis {
+            width: 25%;
+            box-sizing: border-box;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+
+<body>
+    <div class="page">
+        <!-- Title and subtitle -->
+        <div class="pure-g">
+            <div class="pure-u-1-1", style="text-align: center;">
+                <h1>
+                    Exploring Bullying Trends: Victoria (2006-2018)
+                </h1>
+                <p>
+                    Explore the changing patterns of bullying in Victoria from 2006 to 2018 through engaging visualizations. Gain
+                    insights into how bullying incidents among students in years 7 to 9 vary across different areas, providing a clear
+                    snapshot of the trends during this period. This dataset originates from comprehensive, yearly statewide surveys named <i>Attitudes to School</i>.
+                    These surveys evaluate students' school experiences, specifically addressing the query
+                    <i>"Have you experienced bullying at school recently?"
+                </p>
+            </div>
+        </div>
+
+        <!-- Visualization 1 -->
+        <div style="text-align: center;">
+            <div 
+                class="visualization-container" id="vis1">
+            </div>
+        </div>
+
+        <!-- Vis 1 Annotation -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <p>
+                    <strong>Figure 1:</strong> The data for the year 2016 indicates a wide range of bullying prevalence (measured as 'Portion Bullied') 
+                    among students in years 7 to 9 across Local Government Areas (LGAs) in Victoria. The percentages range from as 
+                    low as 4.31% in Southern Grampians to as high as 30.5% in Northern Grampians, illustrating significant disparities 
+                    in bullying rates across regions.
+                </p>
+            </div>
+        </div>
+
+        <!-- Visualization 2 and 3 side by side -->
+        <div class="side-by-side">
+            <div 
+                class="visualization-small-container" id="vis2">
+            </div>
+            <div 
+                class="visualization-small-container" id="vis3">
+            </div>
+        </div>
+
+        <!-- Vis2 + 3 Annotation -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <p>
+                    <strong>Figure 2 and 3 Respectively:</strong> Analyzing bullying rates in Victoria's Local Government Areas (LGAs) from 2014 to 2016, we observe
+                    varied trends. Metropolitan Melbourne generally reports lower rates compared to the state average.
+                    Some areas, like Ararat and Greater Shepparton, saw significant increases, raising concerns. Conversely,
+                    Murrindindi and Yarra saw decreases, suggesting positive interventions. In 2016, Knox reported the
+                    highest bullying at 22.6%, while Stonnington had the lowest at 6% within metropolitan Melbourne. These
+                    variations emphasize the need for targeted interventions and ongoing monitoring to ensure student
+                    well-being and safety.
+                </p>
+            </div>
+        </div>
+
+        <!-- Visualization 4 Annotation -->
+        <div class="side-by-side">
+            <div 
+                class="visualization-mid-container" id="vis4">
+            </div>
+            <div class="analysis">
+                <h2>
+                    Bullying Trends by Gender
+                </h2>
+                <p>
+                    <strong>Figure 4:</strong> Analyzing bullying rates from 2006 to 2016 by gender reveals an interesting evolution. In 2006, males
+                    had a slightly higher bullying rate at 31.7% compared to females at 30.2%. Over the years, overall bullying
+                    rates decreased. A noteworthy shift occurred around 2010-2011, coinciding with the popularization of
+                    social media. Males, once higher at 2.2%, now have a 1.9% lower bullying rate than females. This suggests a
+                    shift in bullying dynamics, possibly due to the emergence of cyberbullying (see below) as a prevalent issue.
+                </p>
+            </div>
+        </div>
+
+        <!-- Visualization 5 Annotation  -->
+        <div class="side-by-side">
+            <div class="analysis">
+                <h2>
+                    Cyberbullying Trends
+                </h2>
+                <p>
+                    <strong>Figure 5:</strong> It's evident that females consistently reported higher rates than males. Metropolitan areas showed higher
+                    cyberbullying rates, likely due to increased digital access. Surprisingly, cyberbullying rates decreased
+                    in 2018 for both LBOTE (Language background other than English) and non-LBOTE groups, possibly due to
+                    anti-bullying efforts and heightened awareness. The slight dip in cyberbullying rates among older students
+                    in 2018 could be attributed to improved digital literacy and increased awareness. These trends highlight
+                    the need for targeted interventions to combat cyberbullying effectively.
+                </p>
+            </div>
+            <div 
+                class="visualization-taller-container" id="vis5">
+            </div>
+        </div>
+
+        <!-- More text -->
+        <div class="pure-g">
+            <div class="pure-u-1-1", style="text-align: center;">
+                <h2>
+                    Bullying Rates and Student School Connection
+                </h2>
+            </div>
+        </div>
+
+        <!-- Visualization 6 -->
+        <div style="text-align: center;">
+            <div 
+                class="visualization-container" id="vis6">
+            </div>
+        </div>
+
+        <!-- More text -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <p>
+                    <strong>Figure 6:</strong> Here, we can see an inverse correlation between the percentage of bullied students and the percentage of students feeling connected to 
+                    the school. Higher rates of bullying are associated with lower levels of perceived connection to the school. This indicates that when students experience 
+                    less bullying, they tend to feel safer and more connected to the school community, emphasizing the need for creating a supportive and inclusive environment 
+                    to enhance student well-being.
+                </p>
+            </div>
+        </div>
+
+        <script>
+            var Visual1 = "./Visualisations/VictoriaChoropleth.json";
+            var Visual2 = "./Visualisations/MetropolitanChoropleth_5&6.json";
+            var Visual3 = "./Visualisations/MetropolitanChoropleth_7-9.json";
+            var Visual4 = "./Visualisations/Gender_Bar_Chart.json";
+            var Visual5 = "./Visualisations/Cyberbullying_dumbell.json";
+            var Visual6 = "./Visualisations/BullyConnectedScatterplot.json";
+
+            vegaEmbed('#vis1', Visual1, {
+                "actions": false
+            }).catch(console.error);
+            vegaEmbed('#vis2', Visual2, {
+                "actions": false
+            }).catch(console.error);
+            vegaEmbed('#vis3', Visual3, {
+                "actions": false
+            }).catch(console.error);
+            vegaEmbed('#vis4', Visual4, {
+                "actions": false
+            }).catch(console.error);
+            vegaEmbed('#vis5', Visual5, {
+                "actions": false
+            }).catch(console.error);
+            vegaEmbed('#vis6', Visual6, {
+                "actions": false
+            }).catch(console.error);
+        </script>
+    </div>
+
+    <div>
+        <div class="page">
+            <div class="pure-g">
+                <div class="pure-u-1-1">
+                    <p class="small-font">
+                        The data presented on this website has been sourced from the <a
+                            href="https://discover.data.vic.gov.au">Data.Vic</a> website. Please refer to the respective datasets
+                        for more detailed information and proper citation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

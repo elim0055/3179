@@ -1,0 +1,97 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 400,
+    "title": "Analyzing Cyberbullying Percentages Across DHS Areas Over Time",
+    "data": {
+      "url": "https://raw.githubusercontent.com/elim0055/3179/main/Data/Cyberbullying.csv"
+    },
+    "layer": [
+      {
+        "mark": "line",
+        "encoding": {
+          "x": {
+            "field": "DHS AREA",
+            "type": "nominal",
+            "title": "",
+            "axis": {
+              "offset": 5,
+              "ticks": false,
+              "minExtent": 100,
+              "domain": false
+            },
+            "sort": ["Metropolitan", "Regional", "Female", "Male", "Year 5", "Year 8", "Year 11", "LBOTE", "Not LBOTE"]
+          },
+          "y": {
+            "field": "Percentage",
+            "type": "quantitative",
+            "title": "Percentage of students cyberbullied",
+            "scale": {"domain": [24, 38]}
+          },
+          "detail": {
+            "field": "DHS AREA",
+            "type": "nominal"
+          },
+          "opacity": {"value": 0.3}
+        }
+      },
+      {
+        "mark": {
+          "type": "point",
+          "filled": true
+        },
+        "encoding": {
+          "x": {
+            "field": "DHS AREA",
+            "type": "nominal",
+            "axis": {
+              "offset": 5,
+              "ticks": false,
+              "minExtent": 100,
+              "domain": false
+            },
+            "sort": ["Metropolitan", "Regional", "Female", "Male", "Year 5", "Year 8", "Year 11", "LBOTE", "Not LBOTE"]
+          },
+          "y": {
+            "field": "Percentage",
+            "type": "quantitative",
+            "title": "Percentage of students cyberbullied",
+            "scale": {"domain": [24, 38]}
+          },
+          "color": {
+            "field": "Year",
+            "type": "ordinal",
+            "title": "Year",
+            "scale": {"scheme": "tableau10"}
+          },
+          "tooltip": [
+            {
+              "field": "DHS AREA",
+              "type": "nominal",
+              "title": "DHS AREA"
+            },
+            {
+              "field": "Percentage",
+              "type": "quantitative",
+              "title": "Percentage Bullied"
+            },
+            {
+              "field": "Year",
+              "type": "quantitative"
+            }
+          ],
+          "size": {"value": 150},
+          "opacity": {"value": 1}
+        }
+      }
+    ],
+    "config": {
+      "view": {"stroke": null},
+      "axis": {"labelFont": "Arial", "titleFont": "Arial"},
+      "legend": {"labelFont": "Arial", "titleFont": "Arial"},
+      "header": {"labelFont": "Arial", "titleFont": "Arial"},
+      "title": {"fontSize": 18, "fontWeight": "bold", "font": "Arial"},
+      "background": "#eeeee4"
+    }
+  }
+  

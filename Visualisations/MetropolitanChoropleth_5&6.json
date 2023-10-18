@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Bullying Prevalence in Metropolitan Melbourne (2016)",
+    "subtitle": "Percentage of Year 5-6 Students Bullied in Metropolitan Melbourne",
+    "fontSize": 18,
+    "fontWeight": "bold",
+    "font": "Arial"
+  },
+  "width": "container",
+  "height": 400,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [-25, -10],
+    "rotate": [-150, 0, 0]
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/elim0055/3179/main/Data/vic_metropolitan.json",
+    "format": {"type": "topojson", "feature": "metropolitan_melb"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.LGA_NAME",
+      "from": {
+        "data": {"url": "https://raw.githubusercontent.com/elim0055/3179/main/Data/Filtered_Data_5%266.csv"},
+        "key": "LGA",
+        "fields": ["Portion Bullied", "Total Students"]
+      },
+      "as": ["Portion Bullied", "Total Students"]
+    }
+  ],
+  "encoding": {
+    "tooltip": [
+      {"field": "properties.LGA_NAME", "type": "nominal", "title": "Local Government Area"},
+      {"field": "Portion Bullied", "type": "quantitative", "title": "Percentage Bullied"},
+      {"field": "Total Students", "type": "quantitative", "title": "Total Students"}
+    ],
+    "color": {
+      "field": "Portion Bullied",
+      "type": "quantitative",
+      "title": "Percentage of Students Bullied",
+      "scale": {
+        "type": "threshold",
+        "domain": [10, 14, 18, 22],
+        "range": ["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#a50f15"]
+      },
+      "legend": {"orient": "bottom"}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+    },
+    {
+      "mark": {"type": "geoshape"}
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"labelFont": "Arial", "titleFont": "Arial"},
+    "legend": {"labelFont": "Arial", "titleFont": "Arial"},
+    "header": {"labelFont": "Arial", "titleFont": "Arial"},
+    "title": {"fontSize": 18, "fontWeight": "bold", "font": "Arial"},
+    "background": "#eeeee4"
+  }
+}
