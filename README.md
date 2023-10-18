@@ -19,5 +19,5 @@ Feel free to explore the repository for more details and the source code for the
 
 ## Author
 
-- Your Name: [Your Name](https://github.com/elim0055)
+- Your Name: [Edwin Lim](https://github.com/elim0055)
 
